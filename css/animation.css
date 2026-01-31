@@ -1,0 +1,8 @@
+@keyframes servies-img{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-40px);
+    }
+}

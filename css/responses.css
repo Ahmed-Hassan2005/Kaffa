@@ -1,0 +1,315 @@
+@media (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+nav .links{
+    position: absolute;
+    top: 130%;
+    width: 60%;
+    height: 0;
+    padding: 0;
+    background-color: black;
+    transition: all 0.5s ease;
+}
+
+nav .button{
+    transition: all 0.5s ease;
+}
+
+nav .button:focus-within + .links,
+nav .links:focus-within {
+    padding: 2%;    
+    height: 244px; 
+    transition: all 0.5s ease;
+}
+
+nav .button:focus{
+    background-color: white;
+    transition: all 0.5s ease;
+}
+
+/* <!--------------Home--------------> */
+
+header input:nth-of-type(1){
+    left: 44%;
+}
+
+header input:nth-of-type(2){
+    left: 48%;
+}
+
+header input:nth-of-type(3){
+    left: 52%;
+}
+
+header input:nth-of-type(4){
+    left: 56%;
+}
+
+header .content .text{
+    width: 90%;
+}
+
+/* <!--------------About--------------> */
+
+#About{
+    padding: 30px 20px;
+}
+
+#About .content{
+    width: 100%;
+}
+
+#About .cards{
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#About .cards ._card{
+    margin-top: 30px;
+}
+
+/* <!--------------Servies--------------> */
+
+#Servies .items .content{
+    width: 90%;
+}
+
+#Servies .items .img{
+    width: 40%;
+}
+
+#Servies .items .content .item i{
+    margin-inline: 10px;
+}
+
+/* <!--------------Menu--------------> */
+
+#Menu{
+    padding: 30px 0;
+}
+
+#Menu .content .tab-content{
+    width: 90%;
+}
+
+#Menu .content .tab-content .tab-pane{
+    justify-content: center;
+}
+
+#Menu .content .tab-content .tab-pane ._card{
+    width: 100%;
+    max-width: 300px;
+    margin: 10px 0;
+}
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+#Book{
+    padding: 30px 0;
+}
+
+#Book .content{
+    width: 90%;
+}
+
+#Book .content .table{
+    width: 100%;
+}
+
+#Book .content .table form{
+    width: 90%;
+}
+
+/* <!--------------Footer--------------> */
+
+    
+}
+
+@media (min-width: 371px) and (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+/* <!--------------Home--------------> */
+
+/* <!--------------About--------------> */
+
+/* <!--------------Servies--------------> */
+
+/* <!--------------Menu--------------> */
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+/* <!--------------Footer--------------> */
+
+
+}
+
+@media (min-width: 577px) and (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+/* <!--------------Home--------------> */
+
+header input:nth-of-type(1){
+    left: 47%;
+}
+
+header input:nth-of-type(2){
+    left: 49%;
+}
+
+header input:nth-of-type(3){
+    left: 51%;
+}
+
+header input:nth-of-type(4){
+    left: 53%;
+}
+
+/* <!--------------About--------------> */
+
+/* <!--------------Servies--------------> */
+
+/* <!--------------Menu--------------> */
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+#Book .content .table form{
+    width: 80%;
+}
+
+/* <!--------------Footer--------------> */
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+nav .links{
+    position: relative;
+    top: 0;
+    width: 45%;
+    height: fit-content;
+    background-color: transparent;
+}
+
+/* <!--------------Home--------------> */
+
+header .content .text{
+    width: 75%;
+}
+
+/* <!--------------About--------------> */
+
+/* <!--------------Servies--------------> */
+
+/* <!--------------Menu--------------> */
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+#Book{
+    padding: 50px 0;
+}
+
+#Book .content{
+    width: 80%;
+}
+
+#Book .content .table{
+    width: 60%;
+}
+
+#Book .content .table form{
+    width: 70%;
+}
+
+/* <!--------------Footer--------------> */
+
+
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+nav .links{
+    width: 30%;
+}
+
+/* <!--------------Home--------------> */
+
+/* <!--------------About--------------> */
+
+#About{
+    padding: 50px;
+}
+
+#About .content{
+    width: 30%;
+}
+
+#About .cards{
+    width: 60%;
+    flex-wrap: nowrap;
+}
+
+#About .cards ._card{
+    margin-top: 0;
+    width: 190px;
+}
+
+/* <!--------------Servies--------------> */
+
+#Servies .items .content{
+    width: 35%;
+}
+
+#Servies .items .img{
+    width: 25%;
+}
+
+#Servies .items .content .item i{
+    margin-inline: 40px;
+}
+
+
+/* <!--------------Menu--------------> */
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+#Book .content .table{
+    width: 60%;
+}
+
+/* <!--------------Footer--------------> */
+
+
+}
+
+@media (min-width: 1181px) and (max-width: 1300px) {
+/* <!--------------NavBar--------------> */
+
+/* <!--------------Home--------------> */
+
+/* <!--------------About--------------> */
+
+/* <!--------------Servies--------------> */
+
+/* <!--------------Menu--------------> */
+
+/* <!--------------Coffe--------------> */
+
+/* <!--------------Book--------------> */
+
+/* <!--------------Footer--------------> */
+
+
+}
