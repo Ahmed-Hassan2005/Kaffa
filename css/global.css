@@ -1,18 +1,72 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
 }
 
 body {
+    width: 100vw;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden !important;
+    line-height: 1.6;
+    /* to make fonts cleaner */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --main-color: #4d8b55;
+}
+
+body:has(#Mode:checked) {
+    --main-color: #718ceb;
+}
+
+a.none {
+    text-decoration: none !important;
+    color: black;
+}
+
+ul.none {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sansita Swashed', cursive;
+}
+
+::selection{
+    background-color: var(--main-color);
     color: white;
 }
 
-:root{
-    --main-color: #4d8b55;
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar:horizontal{
+    height: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal{
+    background-color: var(--main-color);
+    border-radius: 5px;
+    transition: background-color 1s ease;
+}
+
+::-webkit-scrollbar-thumb:vertical{
+    width: 100%;
+}
+
+::-webkit-scrollbar-thumb:horizontal{
+    height: 100%;
 }

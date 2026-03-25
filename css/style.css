@@ -1,938 +1,1062 @@
-a{
-    text-decoration: none;
-    color: white;
+/* <!--------------------------------------Nav-------------------------------------------> */
+
+@media screen{
+    nav{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    nav>label{
+        position: fixed;
+        z-index: 1010;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    nav .dark{
+        opacity: 1;
+        pointer-events: auto;
+        color: #718ceb;
+        transition: opacity 1s ease;
+    }
+
+    nav:has(#Mode:checked) .dark{
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    nav .light{
+        opacity: 0;
+        pointer-events: none;
+        color: #4d8b55;
+        transition: opacity 1s ease;
+    }
+
+    nav:has(#Mode:checked) .light{
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    nav .button{
+        width: 40px;
+        height: 30px;
+        flex-shrink: 0;
+        background-color: transparent;
+        border: 2px solid var(--main-color);
+        border-radius: 5px;
+        transition: border-color 1s ease , background-color 1s ease;
+    }
+
+    nav:has(#NavMenu:checked) .button{
+        background-color: white;
+    }
+
+    nav .button span{
+        display: block;
+        width: 70%;
+        height: 3px;
+        background-color: var(--main-color);
+        transition: background-color 1s ease;
+    }
+
+    nav .container .row .col:nth-of-type(3){
+        position: relative;
+    }
+
+    nav ul label{
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        color: var(--main-color);
+        transition: color 1s ease ,transform 0.5s ease;
+    }
+
+    nav ul label:hover{
+        transform: rotate(180deg);
+    }
+
+    nav ul li{
+        position: relative;
+        height: 50px;
+    }
+
+    nav ul li a{
+        display: block;
+        position: relative;
+        color: white !important;
+        font-size: 18px;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    nav ul li a .word{
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        z-index: 1;
+        white-space: nowrap;
+    }
+
+    nav ul li a::before,
+    nav ul li a::after{
+        content: '';
+        transform: translateX(-101%);
+        z-index: 0;
+    }
+
+    nav ul li a:before,
+    nav ul li a .middle,
+    nav ul li a::after{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: calc(100% / 3);
+        background-color: var(--main-color);
+        transition: transform 0.5s ease , background-color 1s ease;
+    }
+
+    nav ul li a::before{
+        top: 0;
+    }
+
+    nav ul li a .middle{
+        transform: translateX(101%);
+        top: calc(100% / 3);
+    }
+
+    nav ul li a::after{
+        top: calc(100% / 3 * 2);
+    }
+
+    nav ul li a:hover::before,
+    nav ul li a:hover .middle,
+    nav ul li a:hover::after{
+        transform: translateX(0);
+    }
+}
+
+/* <!--------------------------------------Home-------------------------------------------> */
+
+@media screen{
+    header{
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        position: relative;
+    }
+
+    header .inputs{
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+
+    header .inputs label{
+        width: 10px;
+        height: 10px;
+        border-radius: 100vw;
+        background-color: #333;
+        cursor: pointer;
+        transition: background-color 1s ease;
+    }
+
+    header:has(#Radio1:checked) .inputs label:nth-of-type(1){
+        background-color: var(--main-color);
+    }
+
+    header:has(#Radio2:checked) .inputs label:nth-of-type(2){
+        background-color: var(--main-color);
+    }
+
+    header:has(#Radio3:checked) .inputs label:nth-of-type(3){
+        background-color: var(--main-color);
+    }
+
+    header:has(#Radio4:checked) .inputs label:nth-of-type(4){
+        background-color: var(--main-color);
+    }
+
+    header .content{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1s ease;
+    }
+
+    header .content:nth-of-type(1){
+        background-image: url(../imgs/Header/home-1.jpg);
+    }
+
+    header .content:nth-of-type(2){
+        background-image: url(../imgs/Header/home-2.jpg);
+    }
+
+    header .content:nth-of-type(3){
+        background-image: url(../imgs/Header/home-3.jpg);
+    }
+
+    header .content:nth-of-type(4){
+        background-image: url(../imgs/Header/home-4.jpg);
+    }
+
+    header:has(#Radio1:checked) .content:nth-of-type(1){
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header:has(#Radio2:checked) .content:nth-of-type(2){
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header:has(#Radio3:checked) .content:nth-of-type(3){
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header:has(#Radio4:checked) .content:nth-of-type(4){
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    header .content::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.65);
+    }
+
+    header .content .container{
+        width: 100%;
+        height: 100%;
+    }
+
+    header .content .container .row{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    header .content .container .row [class*='col']{
+        position: relative;
+    }
+
+    header .content .container .row [class*='col'] h1,
+    header .content .container .row [class*='col'] p,
+    header .content .container .row [class*='col'] a{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    header .content .container .row [class*='col'] h1{
+        color: var(--main-color);
+        font-size: clamp(30px, 7vw, 70px);
+        transition: 
+            color 1s ease, 
+            transform 1s ease 0.5s, 
+            opacity 1s ease 0.5s;
+    }
+
+    header .content .container .row [class*='col'] p{
+        color: white;
+        font-family: Oswald;
+        font-weight: 100;
+        margin-block: 30px;
+        font-size: clamp(16px, 3vw, 20px);
+        width: 80%;
+        letter-spacing: 1.5px;
+        transition: 
+            transform 1s ease 0.75s, 
+            opacity 1s ease 0.75s;
+    }
+
+    header .content .container .row [class*='col'] a{
+        position: relative;
+        display: inline-block;
+        color: var(--main-color);
+        border: 1px solid var(--main-color);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-right: 30px;
+        overflow: hidden;
+        transition: 
+            color 1s ease, 
+            border-color 1s ease, 
+            transform 1s ease 1s, 
+            opacity 1s ease 1s;
+    }
+
+    header .content .container .row [class*='col'] a:hover{
+        color: white;
+    }
+
+    header .content .container .row [class*='col'] a span{
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    header .content .container .row [class*='col'] a::before,
+    header .content .container .row [class*='col'] a::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border: 20px solid var(--main-color);
+        transition: transform 1s ease;
+    }
+
+    header .content .container .row [class*='col'] a::before{
+        transform: translateX(-101%);
+        border-right-color: transparent;
+    }
+
+    header .content .container .row [class*='col'] a::after{
+        transform: translateX(101%);
+        border-left-color: transparent;
+    }
+
+    header .content .container .row [class*='col'] a:hover::before,
+    header .content .container .row [class*='col'] a:hover::after{
+        transform: translateX(0);
+    }
+
+    header:has(#Radio1:checked) .content:nth-of-type(1) .container .row [class*='col'] h1,
+    header:has(#Radio1:checked) .content:nth-of-type(1) .container .row [class*='col'] p,
+    header:has(#Radio1:checked) .content:nth-of-type(1) .container .row [class*='col'] a{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    header:has(#Radio2:checked) .content:nth-of-type(2) .container .row [class*='col'] h1,
+    header:has(#Radio2:checked) .content:nth-of-type(2) .container .row [class*='col'] p,
+    header:has(#Radio2:checked) .content:nth-of-type(2) .container .row [class*='col'] a{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    header:has(#Radio3:checked) .content:nth-of-type(3) .container .row [class*='col'] h1,
+    header:has(#Radio3:checked) .content:nth-of-type(3) .container .row [class*='col'] p,
+    header:has(#Radio3:checked) .content:nth-of-type(3) .container .row [class*='col'] a{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    header:has(#Radio4:checked) .content:nth-of-type(4) .container .row [class*='col'] h1,
+    header:has(#Radio4:checked) .content:nth-of-type(4) .container .row [class*='col'] p,
+    header:has(#Radio4:checked) .content:nth-of-type(4) .container .row [class*='col'] a{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* <!--------------------------------------About-------------------------------------------> */
+
+@media screen{
+    #About{
+        width: 100%;
+        position: relative;
+        background-image: url(../imgs/About/BackGround.png);
+        background-color: var(--main-color);
+        background-position: center;
+        padding: 50px 0;
+        transition: background-color 1s ease;
+    } 
+
+    #About .container .row .right{
+        position: relative;
+    }
+
+    #About .container .row .right .subtitle{
+        color: white;
+    }
+
+    #About .container .row .right h2{
+        color: white;
+        margin: 20px 0 0;
+        font-size: clamp(30px, 5vw, 50px);
+    }
+
+    #About .container .row .right p{
+        color: white;
+        margin: 20px 0;
+    }
+
+    #About .container .row .right a{
+        color: white;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        font-size: 20px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        transition: all 0.5s ease;
+    }
+
+    #About .container .row .right a span{
+        position: relative;
+        font-family: Oswald;
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+
+    #About .container .row .right a::before,
+    #About .container .row .right a::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 101%;
+        height: 101%;
+        background-color: white;
+        z-index: 0;
+        transition: all 0.5s ease;
+    }
+
+    #About .container .row .right a::before{
+        transform: translateY(-101%);
+        border-right-color: transparent;
+    }
+
+    #About .container .row .right a::after{
+        transform: translateY(101%);
+        border-left-color: transparent;
+    }
+
+    #About .container .row .right a:hover::before{
+        transform: translateY(-49%);
+    }
+
+    #About .container .row .right a:hover::after{
+        transform: translateY(49%);
+    }
+
+    #About .container .row .right a:hover span{
+        color: var(--main-color);
+    }
+
+    #About .container .row .left{
+        position: relative;
+    }
+
+    #About .container>.row .left>.row [class*='col']{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box{
+        position: relative;
+        width: 95%;
+        max-width: 230px;
+        height: 400px;
+        margin: auto;
+        transition: all 2s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .front{
+        position: absolute;
+        border-radius: 10px;
+        overflow: hidden;
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 2s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(1) .box .front{
+        background-image: url(../imgs/About/about-1.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(2) .box .front{
+        background-image: url(../imgs/About/about-2.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(3) .box .front{
+        background-image: url(../imgs/About/about-3.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box:hover .front{
+        transform: rotateY(180deg);
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back{
+        position: absolute;
+        border-radius: 10px;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        transition: all 2s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box:hover .back{
+        transform: rotateY(0deg);
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .head{
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 40%;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(1) .box .back .head{
+        background-image: url(../imgs/About/about-4.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(2) .box .back .head{
+        background-image: url(../imgs/About/about-5.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(3) .box .back .head{
+        background-image: url(../imgs/About/about-6.jpg);
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body{
+        position: relative;
+        width: 100%;
+        height: 60%;
+        padding: 10px;
+        text-align: center;
+        background-color: var(--main-color);
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(1) .box .back .body{
+        background-color: #404042;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(2) .box .back .body{
+        background-color: #87744a;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(3) .box .back .body{
+        background-color: #6d1f37;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body h4{
+        position: relative;
+        color: white;
+        width: 100%;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body p{
+        position: relative;
+        color: white;
+        font-family: Oswald;
+        font-weight: 100;
+        width: 100%;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body a{
+        position: relative;
+        border: 1px solid white;
+        border-radius: 100vw;
+        padding: 5px 20px;
+        transition: all 0.5s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body a:hover{
+        background-color: white;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body a span{
+        position: relative;
+        color: white;
+        font-size: 20px;
+        font-family: Oswald;
+        font-weight: 100;
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body a i{
+        position: relative;
+        color: white;
+        font-size: 20px;
+        margin-left: 0px;
+        transition: all 0.5s ease;
+    }
+
+    #About .container>.row .left>.row [class*='col'] .box .back .body a:hover i{
+        margin-left: 5px;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(1) .box .back .body a:hover span,
+    #About .container>.row .left>.row [class*='col']:nth-child(1) .box .back .body a:hover i{
+        color: #404042;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(2) .box .back .body a:hover span,
+    #About .container>.row .left>.row [class*='col']:nth-child(2) .box .back .body a:hover i{
+        color: #87744a;
+    }
+
+    #About .container>.row .left>.row [class*='col']:nth-child(3) .box .back .body a:hover span,
+    #About .container>.row .left>.row [class*='col']:nth-child(3) .box .back .body a:hover i{
+        color: #6d1f37;
+    }
+
+}
+
+/* <!--------------------------------------Services-------------------------------------------> */
+
+@media screen{
+    #Services{
+        width: 100%;
+        padding: 30px 0;
+        background-image: url(../imgs/Services/services-bg.jpg);
+        background-color: rgba(0, 0, 0, 0.5);
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+    }
+
+    #Services .title{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    #Services .title h1{
+        position: relative;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    #Services .container>.row>[class*='col']>.row>[class*='col']{
+        margin-bottom: 40px;
+    }
+
+    #Services .container>.row>[class*='col']>.row>[class*='col']>.row>[class*='col'] h4{
+        position: relative;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    #Services .container>.row>[class*='col']>.row>[class*='col']>.row>[class*='col'] p{
+        position: relative;
+        color: lightgray;
+        font-family: Oswald;
+        font-weight: 100;
+        margin-bottom: 10px;
+    }
+
+    #Services .container>.row>[class*='col']>.row>[class*='col']>.row>[class*='col'] i{
+        position: relative;
+        color: var(--main-color);
+        font-size: 40px;
+        margin-bottom: 10px;
+        transition: all 0.5s ease;
+    }
+
+    #Services .container>.row>[class*='col'] img{
+        position: relative;
+        animation: servies-img 1s ease infinite;
+        animation-direction: alternate;
+    }
+}   
+
+/* <!--------------------------------------Menu-------------------------------------------> */
+
+@media screen{
+    #Menu{
+        width: 100%;
+        padding: 30px 0;
+        background-image: url(../imgs/About/BackGround.png);
+        background-color: var(--main-color);
+        background-position: center;
+        transition: all 0.5s ease;
+    }
+
+    #Menu .title{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    #Menu .title h1{
+        position: relative;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    #Menu .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #Menu .content .tabs{
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        overflow-x: auto;
+        padding-bottom: 50px;
+    }
+
+    #Menu .content ul{
+        display: flex;
+        flex-wrap: nowrap;
+        margin: auto;
+        flex-shrink: 0;
+        gap: clamp(0px, 1.2vw, 20px);
+        justify-content: flex-start;
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    #Menu .content ul li{
+        cursor: pointer;
+        flex-shrink: 0;
+        border-radius: 5px;
+        height: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+
+    #Menu .content ul li:first-child{
+        border-top-left-radius: 9px;
+        border-bottom-left-radius: 9px;
+    }
+
+    #Menu .content ul li:last-child{
+        border-top-right-radius: 9px;
+        border-bottom-right-radius: 9px;
+    }
+
+    #Menu .content ul li:hover{
+        background-color: white;
+    }
+
+    #Menu .content ul li button{
+        color: white;
+        font-family: 'Sansita Swashed', cursive;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.5s ease;
+    }
+
+    #Menu .content ul li button:hover{
+        color: var(--main-color);
+    }
+
+    #Menu .content ul li button.active {
+        color: var(--main-color);
+    }
+
+    #Menu .content .tab-content{
+        position: relative;
+        top: 0;
+    }
+
+    #Menu .content .tab-content .tab-pane{
+        width: 100%;
+        display: none;
+        justify-content: space-evenly;
+        gap: clamp(0px, 1.2vw, 20px);
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #Menu .content .tab-content .tab-pane.active{
+        display: flex;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card{
+        position: relative;
+        width: 23%;
+        border-radius: 10px;
+        height: fit-content;
+        overflow: hidden;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card img{
+        width: 100%;
+        border-radius: 10px;
+        transform: scale(0);
+    }
+
+    #Menu .content .tab-content .tab-pane.show.active ._card img {
+        transform: scale(1);
+        transition: all 1s ease;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card .item,
+    #Menu .content .tab-content .tab-pane ._card .price{
+        position: absolute;
+        font-size: clamp(10px, 1.2vw, 15px);
+        padding-block: 5px;
+        padding-inline: clamp(0px, 1.2vw, 5px);
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        left: 0;
+        color: white;
+        transform: translateX(-100%);
+        background-image: url(../imgs/About/BackGround.png);
+        background-color: var(--main-color);
+        background-position: center;
+        transition: all 1s ease;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card .item{
+        top: 10px;
+        font-family: 'Sansita Swashed', cursive;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card .price{
+        bottom: 10px;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card:hover img{
+        transform: scale(1.2) !important;
+    }
+
+    #Menu .content .tab-content .tab-pane ._card:hover .item,
+    #Menu .content .tab-content .tab-pane ._card:hover .price{
+        transform: translateX(0%);
+    }
+}
+
+/* <!--------------------------------------Beans Coffee-------------------------------------------> */
+
+@media screen{
+    #Coffee{
+        width: 100%;
+        padding: 30px 0;
+        background-image: url(../imgs/Coffee/Coffee.jpg);
+        background-color: rgba(0, 0, 0, 0.5);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+    }
+
+    #Coffee h2{
+        color: var(--main-color);
+        font-size: clamp(20px, 7vw, 70px);
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    #Coffee h1{
+        color: white;
+        font-size: clamp(40px, 5vw, 60px);
+        font-weight: bold;
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #Coffee .vedeoLabel{
+        position: relative;
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+
+    #Coffee .vedeoLabel i{
+        font-size: clamp(60px, 10vw, 120px);
+        color: white;
+        transition: all 0.5s ease;
+    }
+
+    #Coffee .vedeoLabel:hover i{
+        color: var(--main-color);
+    }
+
+    #Coffee #VideoPopup{
+        display: none;
+    }
+
+    #Coffee .videoPopup{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.5s ease;
+    }
+
+    #Coffee:has(#VideoPopup:checked) .videoPopup{
+        opacity: 1;
+        pointer-events: all;
+    }
+
+
+    #Coffee .videoPopup .overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    #Coffee .videoPopup .video{
+        z-index: 2;
+        transform: translateY(-200px);
+        transition: all 0.5s ease;
+    }
+
+    #Coffee:has(#VideoPopup:checked) .videoPopup .video{
+        transform: translateY(0);
+    }
+}
+
+/* <!--------------------------------------Book-------------------------------------------> */
+
+@media screen{
+    #Book{
+        width: 100%;
+        background-image: url(../imgs/Book/book-bg1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-blend-mode: overlay;
+    }
+
+    #Book .container>.row>[class*='col']>img{
+        height: fit-content !important;
+    }
+
+    #Book .container>.row>[class*='col'] form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url(../imgs/About/BackGround.png);
+        background-color: var(--main-color);
+        padding: 20px 0;
+        max-width: 400px;
+        margin: 0 auto 30px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+    }
+
+    #Book .container>.row>[class*='col'] form h4{
+        text-align: center;
+        color: white;
+    }
+
+    #Book .container>.row>[class*='col'] form input,
+    #Book .container>.row>[class*='col'] form textarea{
+        width: 90%;
+        margin: 20px auto 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 0;
+        outline: 0;
+
+    }
+
+    #Book .container>.row>[class*='col'] form input::placeholder,
+    #Book .container>.row>[class*='col'] form textarea::placeholder{
+        color: var(--main-color);
+        font-weight: 500;
+    }
+
+    #Book .container>.row>[class*='col'] form button{
+        width: 90%;
+        position: relative;
+        margin: 20px auto 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        outline: 0;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+
+    #Book .container>.row>[class*='col'] form button:hover{
+        border: 1px solid white;
+    }
+
+    #Book .container>.row>[class*='col'] form button span{
+        color: white;
+        position: relative;
+        z-index: 2;
+    }
+
+    #Book .container>.row>[class*='col'] form button::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        background-color: var(--main-color);
+        z-index: 1;
+        transition: all 0.5s ease;
+    }
+
+    #Book .container>.row>[class*='col'] form button:hover::after{
+        transform: translateY(0%);
+    }
+}
+
+/* <!--------------------------------------Footer-------------------------------------------> */
+
+@media screen{
+    footer{
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+        background-color: #333;
+        color: white;
+    }  
+
+    footer span{
+        color: var(--main-color);
+        font-weight: bold;
+        transition: all 0.5s ease;
+    }
 }
-
-/* <!--------------NavBar--------------> */
-
-nav{
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: transparent;
-    height: 100px;
-}
-
-nav .img img{
-    width: 70px;
-}
-
-nav .button{
-    width: 40px;
-    height: 30px;
-    padding: 0px 5px;
-    border-radius: 5px;
-    border: 1px solid var(--main-color);
-    cursor: pointer;
-}
-
-nav .button span{
-    width: 80%;
-    height: 2px;
-    background-color: var(--main-color);
-    border-radius: 1px;
-}
-
-nav .links{
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-}
-
-nav .links a{
-    position: relative;
-    padding: 10px 5px;
-    overflow: hidden;
-    width: fit-content;
-    border-radius: 5px;
-    transition: all 0.5s ease;
-}
-
-nav .links a .word{
-    position: relative;
-    width: fit-content;
-    white-space: nowrap;
-    z-index: 1002;
-    font-size: 15px;
-    font-weight: 100;
-}
-
-nav .links a::before,
-nav .links a span,
-nav .links a::after{
-    display: block;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: calc(100%/3);
-    z-index: 1001;
-    background-color: var(--main-color);
-    transition: all 0.5s ease;
-}
-
-nav .links a::before,
-nav .links a::after{
-    content: "";
-    transform: translateX(-101%);
-}
-
-nav .links a::before{
-    top: 0;
-}
-
-nav .links a span{
-    top: calc(100%/3);
-    transform: translateX(101%);
-}
-
-nav .links a::after{
-    bottom: 0;
-}
-
-nav .links a:hover::before,
-nav .links a:hover span,
-nav .links a:hover::after{
-    transform: translateX(0);
-}
-
-/* <!--------------Home--------------> */
-
-header{
-    background-color: black;
-}
-
-header input{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--main-color);
-    cursor: pointer;
-    z-index: 2;
-    bottom: 5%;
-}
-
-header input:nth-of-type(1){
-    left: 48.5%;
-}
-
-header input:nth-of-type(2){
-    left: 49.5%;
-}
-
-header input:nth-of-type(3){
-    left: 50.5%;
-}
-
-header input:nth-of-type(4){
-    left: 51.5%;
-}
-
-header input::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 101%;
-    height: 101%;
-    z-index: 3;
-    border-radius: 50%;
-    background-color: #333;
-    transition: all 0.5s ease;
-}
-
-header input:checked::before{
-    background-color: var(--main-color);
-}
-
-header .content{
-    opacity: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: all 0.5s ease;
-}
-
-header .content:nth-of-type(1){
-    background-image: url(../imgs/Header/home-1.jpg);
-}
-
-header .content:nth-of-type(2){
-    background-image: url(../imgs/Header/home-2.jpg);
-}
-
-header .content:nth-of-type(3){
-    background-image: url(../imgs/Header/home-3.jpg);
-}
-
-header .content:nth-of-type(4){
-    background-image: url(../imgs/Header/home-4.jpg);
-}
-
-header .content::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.65);
-}
-
-header .content .text{
-    z-index: 2;
-    gap: 20px;
-    width: 75%;
-}
-
-header .content .text h1{
-    position: relative;
-    z-index: 2;
-    font-size: clamp(25px , 4vw , 60px);
-    font-weight: 700;
-    color: var(--main-color);
-}
-
-header .content .text p{
-    position: relative;
-    z-index: 2;
-    font-size: clamp(10px , 2vw , 20px);
-    font-weight: 400;
-    color: white;
-}
-
-header .content .text .buttons{
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-}
-
-header .text h1,
-header .text p,
-header .text .buttons {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-header .content .text .buttons a{
-    position: relative;
-    color: var(--main-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: transparent;
-    overflow: hidden;
-    border: 1px solid var(--main-color);
-    transition: all 0.5s ease;
-}
-
-header .content .text .buttons a:hover{
-    color: white;
-    transition: all 1s ease;
-}
-
-header .content .text .buttons a span{
-    position: relative;
-    z-index: 2;
-}
-
-header .content .text .buttons a::before,
-header .content .text .buttons a::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    border: 20px solid var(--main-color);
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-header .content .text .buttons a::before{
-    border-right-color: transparent;
-    transform: translateX(-100%);
-}
-
-header .content .text .buttons a::after{
-    border-left-color: transparent;
-    transform: translateX(100%);
-}
-
-header .content .text .buttons a:hover::before,
-header .content .text .buttons a:hover::after{
-    transform: translateX(0);
-    transition: all 1s ease;
-}
-
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) {
-    opacity: 1;
-    transition: all 1s ease;
-}
-
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text h1,
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text p,
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text .buttons{
-    transform: translateY(0);
-    opacity: 1;
-}
-
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text h1{
-    transition: opacity 1s 0.5s ease , transform 1s 0.5s ease;
-}
-
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text p{
-    transition: opacity 1s 0.75s ease , transform 1s 0.75s ease;
-}
-
-header input:nth-of-type(1):checked ~ .content:nth-of-type(1) .text .buttons{
-    transition: opacity 1s 1s ease , transform 1s 1s ease;
-}
-
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) {
-    opacity: 1;
-    transition: all 1s ease;
-}
-
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text h1,
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text p,
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text .buttons{
-    transform: translateY(0);
-    opacity: 1;
-}
-
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text h1{
-    transition: opacity 1s 0.5s ease , transform 1s 0.5s ease;
-}
-
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text p{
-    transition: opacity 1s 0.75s ease , transform 1s 0.75s ease;
-}
-
-header input:nth-of-type(2):checked ~ .content:nth-of-type(2) .text .buttons{
-    transition: opacity 1s 1s ease , transform 1s 1s ease;
-}
-
-
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) {
-    opacity: 1;
-    transition: all 1s ease;
-}
-
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text h1,
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text p,
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text .buttons{
-    transform: translateY(0);
-    opacity: 1;
-}
-
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text h1{
-    transition: opacity 1s 0.5s ease , transform 1s 0.5s ease;
-}
-
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text p{
-    transition: opacity 1s 0.75s ease , transform 1s 0.75s ease;
-}
-
-header input:nth-of-type(3):checked ~ .content:nth-of-type(3) .text .buttons{
-    transition: opacity 1s 1s ease , transform 1s 1s ease;
-}
-
-
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) {
-    opacity: 1;
-    transition: all 1s ease;
-}
-
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text h1,
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text p,
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text .buttons{
-    transform: translateY(0);
-    opacity: 1;
-}
-
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text h1{
-    transition: opacity 1s 0.5s ease , transform 1s 0.5s ease;
-}
-
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text p{
-    transition: opacity 1s 0.75s ease , transform 1s 0.75s ease;
-}
-
-header input:nth-of-type(4):checked ~ .content:nth-of-type(4) .text .buttons{
-    transition: opacity 1s 1s ease , transform 1s 1s ease;
-}
-
-/* <!--------------About--------------> */
-
-#About{
-    background-image: url(../imgs/About/BackGround.png);
-    background-color: var(--main-color);
-    background-position: center;
-    color: white;
-    padding: 50px;
-}
-
-#About .content{
-    width: 30%;
-}
-
-#About .content h5{
-    font-size: 15px;
-}
-
-#About .content p{
-    font-size: 15px;
-}
-
-#About .content .button{
-    width: fit-content;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 5px 10px;
-    border: 1px solid white;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-#About .content .button span{
-    position: relative;
-    z-index: 2;
-    transition: all 0.5s ease;
-}
-
-#About .content .button:hover span{
-    color: var(--main-color);
-}
-
-#About .content .button::before,
-#About .content .button::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-#About .content .button::before{
-    top: 50%;
-    transform: translateY(50%);
-}
-
-#About .content .button::after{
-    bottom: 50%;
-    transform: translateY(-50%);
-}
-
-#About .content .button:hover::before,
-#About .content .button:hover::after{
-    transform: translateY(0);
-}
-
-#About .cards{
-    width: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#About .cards ._card{
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    width: 230px;
-    height: 390px;
-}
-
-#About .cards ._card .front{
-    position: absolute;
-    backface-visibility: hidden;
-    width: 100%;
-    height: 100%;
-    transition: all 2s ease;
-}
-
-#About .cards ._card:hover .front{
-    transform: rotateY(180deg);
-    transition: all 2s ease;
-}
-
-
-#About .cards ._card .front img{
-    width: 100%;
-    height: 100%;
-}
-
-#About .cards ._card .back{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    transition: all 2s ease;
-}
-
-#About .cards ._card:nth-child(1) .back{
-    background-color: #404042;
-}
-
-#About .cards ._card:nth-child(2) .back{
-    background-color: #87744a;
-}
-
-#About .cards ._card:nth-child(3) .back{
-    background-color: #6d1f37;
-}
-
-#About .cards ._card:hover .back{
-    transform: rotateY(0deg);
-    transition: all 2s ease;
-}
-
-#About .cards ._card .back .head{
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 40%;
-}
-
-#About .cards ._card .back .head img{
-    width: 100%;
-    height: 100%;
-}
-
-#About .cards ._card .back .body{
-    padding: 10px;
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 60%;
-}
-
-#About .cards ._card .back .body h3{
-    width: 100%;
-    text-align: center;
-}
-
-#About .cards ._card .back .body p{
-    width: 100%;
-    text-align: center;
-    line-height: 20px;
-    font-size: 14px;
-}
-
-#About .cards ._card .back .body .explore{
-    width: fit-content;
-    margin: auto;
-    border: 1px solid white;
-    border-radius: 10px;
-    padding: 5px 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-#About .cards ._card .back .body .explore:hover{
-    background-color: white;
-}
-
-#About .cards ._card:nth-child(1) .back .body .explore:hover{
-    color: #404042;
-}
-
-#About .cards ._card:nth-child(2) .back .body .explore:hover{
-    color: #87744a;
-}
-
-#About .cards ._card:nth-child(3) .back .body .explore:hover{
-    color: #6d1f37;
-}
-
-#About .cards ._card .back .body .explore i{
-    transition: all 0.5s ease;
-}
-
-#About .cards ._card .back .body .explore:hover i{
-    margin-left: 5px;
-}
-
-/* <!--------------Servies--------------> */
-
-#Servies{
-    background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url(../imgs/Services/services-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-
-}
-
-#Servies .title{
-    margin-bottom: 50px;
-}
-
-#Servies .items .content{
-    width: 35%;
-}
-
-#Servies .items .content .item{
-    margin: 10px 0;
-}
-
-#Servies .items .content .item i{
-    font-size: 40px;
-    margin-inline: 40px;
-    color: var(--main-color);
-}
-
-#Servies .items .content .item h2{
-    font-size: 20px;
-}
-
-#Servies .items .content .item p{
-    font-size: 15px;
-    color: #cda8a8;
-}
-
-#Servies .items .img{
-    width: 25%;
-}
-
-#Servies .items .img img{
-    animation: servies-img 1s ease-out infinite;
-    animation-direction: alternate;
-}
-
-
-
-/* <!--------------Menu--------------> */
-
-#Menu{
-    background-image: url(../imgs/About/BackGround.png);
-    background-color: var(--main-color);
-    background-position: center;
-    color: white;
-    padding: 50px 0;
-}
-
-#Menu .title{
-    margin-bottom: 20px;
-}
-
-#Menu .content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#Menu .content ul{
-    display: flex;
-    margin: 10px;
-    gap: clamp(0px, 1.2vw, 20px);
-    justify-content: flex-start;
-    border: 1px solid white;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#Menu .content ul li{
-    cursor: pointer;
-    border-radius: 5px;
-    height: 100%;
-    transition: all 0.5s ease;
-}
-
-#Menu .content ul li:hover{
-    background-color: white;
-}
-
-#Menu .content ul li button{
-    color: white;
-    outline: none;
-    border: none;
-    transition: all 0.5s ease;
-}
-
-#Menu .content ul li button:hover{
-    color: var(--main-color);
-    border-radius: 5px;
-}
-
-#Menu .content ul li button.active {
-    color: var(--main-color);
-    border-radius: 5px;
-}
-
-#Menu .content .tab-content{
-    width: 80%;
-    margin-top: 20px;
-    position: relative;
-    top:0;
-}
-
-#Menu .content .tab-content .tab-pane{
-    width: 100%;
-    display: none;
-    justify-content: flex-start;
-    gap: clamp(0px, 1.2vw, 20px);
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-#Menu .content .tab-content .tab-pane.active{
-    display: flex;
-}
-
-#Menu .content .tab-content .tab-pane ._card{
-    position: relative;
-    width: 23%;
-    border-radius: 10px;
-    height: fit-content;
-    overflow: hidden;
-}
-
-#Menu .content .tab-content .tab-pane ._card img{
-    width: 100%;
-    transform: scale(0);
-}
-
-#Menu .content .tab-content .tab-pane.show.active ._card img {
-    transform: scale(1);
-    transition: all 1s ease;
-}
-
-#Menu .content .tab-content .tab-pane ._card .item,
-#Menu .content .tab-content .tab-pane ._card .price{
-    position: absolute;
-    font-size: clamp(10px, 1.2vw, 15px);
-    padding-block: 5px;
-    padding-inline: clamp(0px, 1.2vw, 5px);
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    left: 0;
-    transform: translateX(-100%);
-    background-image: url(../imgs/About/BackGround.png);
-    background-color: var(--main-color);
-    background-position: center;
-    transition: all 1s ease;
-}
-
-#Menu .content .tab-content .tab-pane ._card .item{
-    top: 10px;
-}
-
-#Menu .content .tab-content .tab-pane ._card .price{
-    bottom: 10px;
-}
-
-#Menu .content .tab-content .tab-pane ._card:hover img{
-    transform: scale(1.2) !important;
-}
-
-#Menu .content .tab-content .tab-pane ._card:hover .item,
-#Menu .content .tab-content .tab-pane ._card:hover .price{
-    transform: translateX(0%);
-}
-
-/* <!--------------Coffe--------------> */
-
-#Coffe{
-    background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url(../imgs/Coffee/Coffee.jpg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    padding: 50px 0;
-}
-
-#Coffe h1{
-    text-align: center;
-    font-size: clamp(30px, 6vw, 80px);
-    color: var(--main-color);
-}
-
-#Coffe h2{
-    text-align: center;
-    font-size: clamp(25px, 5vw, 60px);
-    margin-block: 20px;
-    color: white;
-}
-
-#Coffe .icon{
-    font-size: 80px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-#Coffe .icon:hover{
-    color: var(--main-color);
-}
-
-#Coffe .video{
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s ease;
-}
-
-#toggle:checked ~ .video {
-    opacity: 1;
-    z-index: 1001;
-    pointer-events: auto;
-}
-
-#Coffe .video video{
-    width: 60%;
-    max-width: 800px;
-    transform: translateY(-30%);
-    height: auto;
-    pointer-events: auto;
-    border-radius: 10px;
-    cursor: default;
-    transition: all 0.5s ease;
-}
-
-#toggle:checked ~ .video video{
-    transform: translateY(0%);
-}
-
-/* <!--------------Book--------------> */
-
-#Book{
-    background-image: url(../imgs/Book/book-bg1.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 50px 0 0;
-}
-
-#Book .title{
-    color: white;
-    margin-bottom: 50px;
-}
-
-#Book .content{
-    width: 80%;
-}
-
-#Book .content .img{
-    position: relative;
-    bottom: 0;
-    width: 60%;
-}
-
-#Book .content .img img{
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#Book .content .table{
-    background-color: var(--main-color);
-    background-image: url(../imgs/About/BackGround.png);
-    background-position: center;
-    width: 40%;
-    border-radius: 10px;
-}
-
-#Book .content .table h3{
-    font-size: clamp(20px, 2vw, 30px);
-    color: white;
-    text-align: center;
-    margin-block: 20px;
-}
-
-#Book .content .table form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-#Book .content .table form input,
-#Book .content .table form textarea{
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-}
-
-#Book .content .table form textarea{
-    resize: none;
-    height: 200px;
-}
-
-#Book .content .table form button{
-    position: relative;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: #333;
-    cursor: pointer;
-    overflow: hidden;
-    border: 1px solid transparent;
-    transition: all 0.5s ease;
-}
-
-#Book .content .table form button span{
-    position: relative;
-    color: white;
-    background-color: transparent;
-    z-index: 2;
-    transition: all 0.5s ease;
-}
-
-#Book .content .table form button::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    transform: translateY(100%);
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--main-color);
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-#Book .content .table form button:hover{
-    border-color: white;
-}
-
-#Book .content .table form button:hover::after{
-    transform: translateY(0%);
-}
-
-/* <!--------------Footer--------------> */
-
-footer{
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
