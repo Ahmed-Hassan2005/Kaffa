@@ -955,12 +955,17 @@
 @media screen{
     #Book{
         width: 100%;
+        padding-top: 30px;
         background-image: url(../imgs/Book/book-bg1.png);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-blend-mode: overlay;
+    }
+
+    #Book .title h1{
+        color: white;
     }
 
     #Book .container>.row>[class*='col']>img{
